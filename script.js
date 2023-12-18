@@ -4,7 +4,6 @@ const modal = document.getElementById('myModal');
 const modalTitle = document.querySelector('.modal-title');
 const modalIngredients = document.querySelector('.modal-ingredients');
 
-// Function to fetch a random meal from MealDB API
 async function fetchRandomMeal() {
     try {
         const response = await fetch('https://www.themealdb.com/api/json/v1/1/random.php');
@@ -31,7 +30,7 @@ async function fetchRandomMeal() {
     }
 }
 
-// Function to get ingredients list
+
 function getIngredientsList(meal) {
     let ingredients = '';
     for (let i = 1; i <= 20; i++) {
@@ -46,19 +45,15 @@ function getIngredientsList(meal) {
     return ingredients;
 }
 
-// Close the modal
+
 function closeModal() {
     modal.style.display = 'none';
 }
-
-// Close the modal when clicking on the close button
 modal.querySelector('.close').addEventListener('click', closeModal);
 
-// Event listener for the refresh button to fetch a random meal and close the modal
 refreshButton.addEventListener('click', () => {
     fetchRandomMeal();
     closeModal();
 });
 
-// Fetch a random meal when the page loads
 document.addEventListener('DOMContentLoaded', fetchRandomMeal);
