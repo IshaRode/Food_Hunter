@@ -33,7 +33,7 @@ async function fetchRandomMeal() {
 
 function getIngredientsList(meal) {
     let ingredients = '';
-    for (let i = 1; i <= 20; i++) {
+    for (let i = 1; i <= 16; i++) {
         const ingredient = meal[`strIngredient${i}`];
         const measure = meal[`strMeasure${i}`];
         if (ingredient && measure) {
@@ -56,4 +56,4 @@ refreshButton.addEventListener('click', () => {
     closeModal();
 });
 
-document.addEventListener('DOMContentLoaded', fetchRandomMeal);
+

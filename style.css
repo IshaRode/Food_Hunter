@@ -63,7 +63,7 @@ text-align: center;
     }
 
     .random-image {
-        height: 500px;
+        height: 400px;
     }
 
     .food-title {
@@ -143,7 +143,8 @@ border-radius: 40px;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    
+    background-image: url('./assets/wood.jpeg');
+    background-size: cover;
   }
   
   .random-food {
@@ -153,9 +154,12 @@ border-radius: 40px;
     border-radius: 10px;
   }
 .modal {
-    background-color: rgb(124, 124, 126);
+    
     margin-left: 40px;
     color: white;
+    padding: 10px;
+    border-radius: 10px;
+    
 }
 .modal-content {
     padding: 20px;
@@ -164,12 +168,38 @@ border-radius: 40px;
 .modal-title {
     text-align: center;
 }
-
+.modal-ingredients {
+  font-size: 20px;
+}
 .close {
     display: flex;
     justify-content: end;
-    
+    font-size: 20px;
 }
+
+
+.search-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-gap: 20px;
+  color: white;
+}
+
+.searched-item {
+  /* border: 1px solid #ccc; */
+  padding: 10px;
+  text-align: center;
+}
+
+.searched-item img {
+  width: 400px;
+  /* max-width: 100%; */
+  height: 400px;
+  margin-bottom: 10px;
+}
+
+
+
   @media only screen and (max-width: 768px) {
 
     .refresh-button {
@@ -193,9 +223,10 @@ border-radius: 40px;
     .rando {
       display: flex;
       flex-direction: column;
+     
     }
     .random-image {
-      height: 200px;
+      height: 250px;
     }
     .search-box {
       margin-left: 0px;
@@ -206,5 +237,19 @@ border-radius: 40px;
       align-items: center;
       justify-content: center;
     }
-
+    .modal {
+      margin-left: 0px;
+      margin-top: 30px;
+      padding-left: 30px;
+      padding-right: 30px;
+      
+    }
+    .modal-content {
+      padding: 20px;
+      font-size: 14px;
+  }
+  .modal-ingredients {
+    font-size: 15px;
+    padding-left: 6px;
+  }
   }
