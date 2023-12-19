@@ -83,6 +83,29 @@ async function fetchMeals(searchTerm) {
     }
 }
 
+function displaySearchResults(meals) {
+    const searchResultDiv = document.querySelector('.search-results');
+    searchResultDiv.innerHTML = '';
+    if (meals.length === 0) {
+        searchResultDiv.innerHTML = '<p>No meals found </p>'
+        return;
+    }
+
+meals.forEach(meal => {
+    const foodName = meal.strMeal;
+    const foodImage = meal.strMealThumb;
+    const resultItem = document.createElement('div');
+    resultItem.classList.add('searched-item');
+    const mealImage = document.createElement('img');
+    mealImage.src = foodImage;
+    mealImage.alt = foodName;
+    const mealTitle = document.createElement('h2');
+    mealTitle.textContent = foodName;
+    resultItem.appendChild(mealImage);
+    resultItem.appendChild(mealTitle);
+    searchResultDiv.appendChild(resultItem);
+});
+}
 
 const searchButton = document.querySelector('.search-btn');
 searchButton.addEventListener('click', async () => {
@@ -90,7 +113,8 @@ searchButton.addEventListener('click', async () => {
     const searchTerm = searchInput.value.trim();
     if (searchTerm !== '') {
         const searchResults = await fetchMeals(searchTerm);
-        console.log(searchResults);
+        displaySearchResults(searchResults); 
+        
     } else {
         return ("Please enter a search term.");
     }
