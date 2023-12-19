@@ -56,4 +56,42 @@ refreshButton.addEventListener('click', () => {
     closeModal();
 });
 
+const refbutton = document.querySelector('.refresh');
+refbutton.addEventListener('click', () => {
+    fetchRandomMeal();
+    closeModal();
 
+
+const randomise = document.querySelector('.rando');
+randomise.scrollIntoView({ behavior : "smooth"});
+});
+
+document.addEventListener('DOMContentLoaded', fetchRandomMeal);
+
+async function fetchMeals(searchTerm) {
+    try {
+        const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchTerm}`);
+        const data = await response.json();
+        if (data.meals) {
+            return data.meals;
+        } else {
+            return [];
+        }
+
+    } catch(error) {
+        return[];
+    }
+}
+
+
+const searchButton = document.querySelector('.search-btn');
+searchButton.addEventListener('click', async () => {
+    const searchInput = document.querySelector('.search-input');
+    const searchTerm = searchInput.value.trim();
+    if (searchTerm !== '') {
+        const searchResults = await fetchMeals(searchTerm);
+        console.log(searchResults);
+    } else {
+        return ("Please enter a search term.");
+    }
+});
