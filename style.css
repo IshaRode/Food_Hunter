@@ -178,6 +178,10 @@ border-radius: 40px;
     font-size: 20px;
 }
 
+.refresh-button:hover .refresh {
+  color: rgb(19, 233, 19);
+  cursor: pointer;
+ }
 
 .search-results {
   display: grid;
